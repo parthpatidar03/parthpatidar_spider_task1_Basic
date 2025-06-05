@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Coffee Bliss - Landing Page</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #fdf6f0;
+      padding-top: 70px; 
+    }
+    
+    
+    .navbar-custom {
+      background-color: rgba(106, 47, 1, 0.95);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+      padding: 8px 0;
+    }
+    
+    .btn-group-lg>.btn, 
+    .btn-lg {
+    --bs-btn-padding-y: 0.5rem;
+    --bs-btn-padding-x: 1rem;
+    --bs-btn-font-size: 1.9rem;
+    --bs-btn-border-radius: var(--bs-border-radius-lg);
+}
+    .navbar-brand {
+      font-weight: 800;
+      font-size: 2.45rem;
+      color: #fff8f0 ;
+      display:flex;
+      align-items: center;
+
+    }
+    
+    .navbar-brand i {
+      margin-right: 10px;
+      color: #e6b325;
+    }
+    
+    .nav-link {
+      color: rgba(255, 248, 240, 0.85) !important;
+      font-weight: 700;
+      margin: 0 8px;
+      padding: 8px 15px !important;
+      border-radius: 30px;
+
+    }
+    
+    .nav-link:hover, 
+
+    .nav-link.active {
+      color: #fff !important;
+      background: rgba(255, 255, 255, 0.15);
+    }
+    
+    .nav-cta {
+      background: #e6b325;
+      color: #4a1d00 !important;
+      border-radius: 30px;
+      font-weight: 600;
+      padding: 8px 20px !important;
+      margin-left: 10px;
+      transition: all 0.3s ease;
+    }
+    
+    .nav-cta:hover {
+      background: #f0c048;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    .fixed-top {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1;
+}
+
+    .navbar-toggler:focus {
+      box-shadow: none;
+    }
+    
+    .navbar-toggler-icon {
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 248, 240, 0.8%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+    }
+    
+    /* Hero section */
+    .hero {
+      background: url('./Images1/bg3.avif') center/cover no-repeat;
+      height: calc(100vh - 70px); /* Account for navbar height */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-shadow: 2px 2px 4px #000;
+    }
+    
+    
+    .hero h1 {
+      font-size: 5rem;
+    }
+    .product-card img {
+      height: 200px;
+      object-fit: cover;
+    }
+    .testimonial {
+      background-color: #fff3e0;
+      border-left: 5px solid #795548;
+      padding: 1rem;
+    }
+
+@media (max-width: 767.98px) {
+  #navbarNav {
+    background-color: rgba(106, 47, 1, 0.98);
+ 
+  }
+}
+    /* .py-0{
+      padding-top: 0px !important;
+    } */
+
+    @media (max-width: 767.98px) {
+     
+      #navbarNav {
+        background-color: rgba(106, 47, 1, 0.98);
+        padding: 15px;
+        margin-top: 10px;
+        border-radius: 10px;
+      }
+    
+      .navbar-nav .nav-item {
+        margin: 5px 0;
+      }
+    }  
+  </style>
+</head>
+<body>
+
+  <nav class="navbar navbar-dark navbar-custom fixed-top py-0 navbar-expand-md">
+    <div class="container">
+      <a class="navbar-brand">
+        <i class="fas fa-mug-hot"></i>
+        Coffee Bliss
+      </a>
+  
+    
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+  
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link active" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#products">Menu</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#testimonials">Testimonials</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#about">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#"><i class="fas fa-shopping-cart me-1"></i> Cart</a>
+          </li>
+          <li class="nav-item d-none d-lg-block">
+            <div class="vr mx-2 bg-light opacity-50" style="height: 30px;"></div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-cta" href="#products">
+              <i class="fas fa-bolt me-1"></i> Order Now
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+]
+
+  <section class="hero text-center">
+    <div>
+      <h1>Brewed to Perfection</h1>
+      <p class="lead">Start your day with Coffee Bliss</p>
+      <a href="#products" class="btn btn-lg btn-light mt-3">Shop Now</a>
+    </div>
+  </section>
+
+
+  <section id="products" class="py-5">
+    <div class="container">
+      <h2 class="text-center mb-4">Our Best Brews</h2>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="card product-card">
+            <img src="Images1/espresso.jpg" class="card-img-top" alt="Espresso">
+            <div class="card-body">
+              <h5 class="card-title">Espresso</h5>
+              <p class="card-text">Rich and strong coffee to kickstart your morning.</p>
+              <p><strong>₹199</strong></p>
+              <a href="#" class="btn btn-outline-dark">Add to Cart</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card product-card">
+            <img src="./Images1/latte.jpg" class="card-img-top" alt="Latte">
+            <div class="card-body">
+              <h5 class="card-title">Latte</h5>
+              <p class="card-text">Creamy and smooth, perfect for relaxation.</p>
+              <p><strong>₹249</strong></p>
+              <a href="#" class="btn btn-outline-dark">Add to Cart</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card product-card">
+            <img src="./Images1/cappuccino.png" class="card-img-top" alt="Cappuccino">
+            <div class="card-body">
+              <h5 class="card-title">Cappuccino</h5>
+              <p class="card-text">A classic favorite with frothy milk goodness.</p>
+              <p><strong>₹229</strong></p>
+              <a href="#" class="btn btn-outline-dark">Add to Cart</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="py-5 bg-light">
+    <div class="container">
+      <h2 class="text-center mb-4">What Our Customers Say</h2>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="testimonial">
+            <p>"Absolutely love the espresso! Rich taste and amazing aroma."</p>
+            <p><strong>- Riya S.</strong></p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="testimonial">
+            <p>"Coffee Bliss delivers the best latte I've ever had. Must try!"</p>
+            <p><strong>- Arjun M.</strong></p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="testimonial">
+            <p>"Great customer service and fast delivery. 5 stars!"</p>
+            <p><strong>- Sneha T.</strong></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-5">
+    <div class="container text-center">
+      <h2>About Coffee Bliss</h2>
+      <p class="lead">At Coffee Bliss, we source premium beans from sustainable farms, roasting them to perfection to deliver the freshest flavors to your cup.</p>
+      <p>Free shipping on orders above ₹500. Follow us on social media for updates and offers!</p>
+      <div class="mt-3">
+        <a href="#" class="btn btn-outline-secondary me-2">Facebook</a>
+        <a href="#" class="btn btn-outline-secondary me-2">Instagram</a>
+        <a href="#" class="btn btn-outline-secondary">Twitter</a>
+      </div>
+    </div>
+  </section>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
