@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hammer Strength Test</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            background: linear-gradient(135deg, rgba(26, 42, 108, 0.8), rgba(178, 31, 31, 0.8), rgba(253, 187, 45, 0.8)), 
+                    url('Hammer arcade image.jpg') center/cover no-repeat fixed;
+        }
+    </style>
+</head>
+<body>
+    <div class="game-container">
+        <div class="header">
+            <h1>HAMMER STRENGTH TEST</h1>
+            <div class="subtitle">Test your timing, Aim for perfect 90° angle!</div>
+        </div>
+        
+        <div class="game-area">
+            <div class="strength-meter-container">
+                <div class="strength-meter">
+                    <div class="arc"></div>
+                    <div class="angle-markers" id="angleMarkers">
+                        <div>
+                            <img id ="arcadeimage" src="./Images/Hammer arcade image.jpg">
+                        </div>
+                    </div>
+                    <div id="creator">Made with 💖 by Parth</div>
+                    <div class="pivot"></div>
+                    <div class="needle" id="needle">
+                        <div class="needle-tip"></div>
+                    </div>
+                    <div class="hammer"></div>
+                </div>
+            </div>
+            
+            <div class="info-panel">
+                <div class="score-panel">
+                    <div class="panel-title">CURRENT SCORE</div>
+                    <div class="score-display" id="scoreDisplay">0</div>
+                    <div class="strength-level" id="strengthLevel">Press START!</div>
+                </div>
+                
+                <div class="timer-container">
+                    <div class="panel-title">TIME REMAINING</div>
+                    <div class="timer-display" id="timerDisplay">5.0</div>
+                </div>
+                
+
+                <div class="controls">
+                    <button id="startBtn">START GAME</button>
+                    <button id="twoPlayerBtn">TWO PLAYER MODE</button>
+
+                
+                    <button id="stopBtn" disabled>STOP HAMMER (SPACE)</button>
+                    <button id="resetBtn">RESET GAME</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<script src="./script.js"></script>
+</body>
+</html>
