@@ -1,6 +1,6 @@
-
 document.addEventListener('DOMContentLoaded', () => {
     // Game elements
+    const angleMarkers = document.getElementById('angleMarkers');
     const needle = document.getElementById('needle');
     const startBtn = document.getElementById('startBtn');
     const twoPlayerBtn = document.getElementById('twoPlayerBtn');
@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const scoreDisplay = document.getElementById('scoreDisplay');
     const timerDisplay = document.getElementById('timerDisplay');
     const strengthLevel = document.getElementById('strengthLevel');
-    const angleMarkers = document.getElementById('angleMarkers');
+    
     
     // Game variables
     let animationId = null;
@@ -28,10 +28,10 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentPlayer = 1;
     
     // Create angle markers
-    createAngleMarkers();
+    createAngleMarkers(); // called via hoisting 
     
 
- 
+ // start button:  
     startBtn.addEventListener('click', () => startGame(false));
     
     twoPlayerBtn.addEventListener('click', () => startGame(true));
@@ -51,6 +51,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     
 
+    // Functions declaration start:
+
+    // making angles visible 
     function createAngleMarkers() 
     {
         // at each 15 degree marke created
@@ -60,16 +63,16 @@ document.addEventListener('DOMContentLoaded', () => {
             marker.style.transform = `rotate(${angle}deg)`;
             angleMarkers.appendChild(marker);
             
-            // adding lables for main angles as showm
-            if (angle === 0 || angle === 45 || angle === 90 || angle === 135 || angle === 180) {
+            // adding lables for main angles to show
+            if (angle === 0 || angle === 45 || angle === 90 || angle === 135 || angle === 180) { 
                 const label = document.createElement('div');
                 label.className = 'angle-label';
                 label.textContent = `${angle}°`;
                 
             
                 const rad = angle * Math.PI / 180;
-                const radius = 170;
-                const x = 200 + Math.sin(rad) * radius;
+                const radius = 180;
+                const x = 190 + Math.sin(rad) * radius;
                 const y = 200 - Math.cos(rad) * radius;
                 
                 label.style.left = `${x}px`;
@@ -80,6 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     
 
+    // Start game Funsction
     function startGame(twoPlayer) {
         if (gameActive) return;
         
@@ -94,7 +98,7 @@ document.addEventListener('DOMContentLoaded', () => {
         direction = 1;
         currentScore = 0;
         timer = 5.0;
-       ;
+       
         timerDisplay.textContent = timer.toFixed(1);
         scoreDisplay.textContent = "0";
         scoreDisplay.style.color = "#27ae60";
@@ -126,7 +130,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // change direction at limits
         if (currentAngle >= 180) {
             currentAngle = 180;
-            direction = -1;
+            direction = -1; // -1 means anticlock when angle tries to go beyond 180 deg
         } else if (currentAngle <= 0) {
             currentAngle = 0;
             direction = 1;
@@ -170,23 +174,24 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!gameActive) return;
         
         // calculate the fimal score based on deviation from 90°
-        const deviation = Math.abs(currentAngle - 90);
+        const deviation = Math.abs(currentAngle - 90);// absolute value magnitudde only
+        //console.log(currentAngle)
         currentScore = Math.max(0, 100 - deviation);
         
 
         if (twoPlayerMode) {
             if (currentPlayer === 1) {
                 player1Score = Math.round(currentScore);
-                currentPlayer = 2;
-                strengthLevel.textContent = `Player 1 scored: ${player1Score}. Get ready Player 2!`;
+                currentPlayer = 2; // change current ply. to 2
+                strengthLevel.textContent = `Player 1 scored: ${player1Score}. Player 2's! turn in 3sec`;
                 strengthLevel.style.color = "#3498db";
                 
-                // Add delay 
+                // Add delay beteen both plyrs.
                 endGame();
                 setTimeout(() => {
                     strengthLevel.textContent = "Player 2: Press STOP at 90°!";
                     startPlayer2Turn();
-                }, 2000); 
+                }, 3000); 
                 return;
             } else {
                 player2Score = Math.round(currentScore);
@@ -253,7 +258,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function endTwoPlayerGame() {
         gameActive = false;
-        cancelAnimationFrame(animationId);
+       
         clearInterval(timerInterval);
         
         // round scores to integers
