@@ -370,6 +370,106 @@ button:active {
     font-family: 'Times New Roman', Times, serif;
     font-size: x-large;
     font-weight: 900;
+    background: linear-gradient(45deg, #d35400, #e67e22, #f39c12);
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: hammergradientShift 3s ease-in-out infinite;
+    text-shadow: 0 0 10px rgba(211, 84, 0, 0.3);
+    transition: transform 0.3s ease;
+}
+
+#creator:hover {
+    transform: scale(1.1);
+    animation: hammergradientShift 1s ease-in-out infinite, hammerBounce 0.6s ease-out;
+}
+
+@keyframes hammergradientShift {
+    0%, 100% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+@keyframes hammerBounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: scale(1.1);
+    }
+    40% {
+        transform: scale(1.2);
+    }
+    60% {
+        transform: scale(1.15);
+    }
+}
+
+@keyframes hammerStrike {
+    0% {
+        transform: translateX(-50%) rotate(var(--angle)) scale(1);
+    }
+    50% {
+        transform: translateX(-50%) rotate(var(--angle)) scale(1.2);
+        filter: drop-shadow(10px 10px 10px rgba(0, 0, 0, 0.5));
+    }
+    100% {
+        transform: translateX(-50%) rotate(var(--angle)) scale(1);
+    }
+}
+
+@keyframes scoreGlow {
+    0%, 100% {
+        color: #2ecc71;
+        text-shadow: 0 0 10px rgba(46, 204, 113, 0.5);
+    }
+    50% {
+        color: #27ae60;
+        text-shadow: 0 0 20px rgba(46, 204, 113, 0.8), 0 0 30px rgba(46, 204, 113, 0.6);
+    }
+}
+
+@keyframes particleFloat {
+    0% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-50px) scale(0.5);
+        opacity: 0;
+    }
+}
+
+.score-display.perfect {
+    animation: scoreGlow 1s ease-in-out infinite;
+}
+
+.needle.striking {
+    animation: hammerStrike 0.3s ease-out;
+}
+
+.strength-meter::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255,215,0,0.1) 0%, transparent 70%);
+    transform: translate(-50%, -50%);
+    animation: meterGlow 2s ease-in-out infinite;
+}
+
+@keyframes meterGlow {
+    0%, 100% {
+        opacity: 0.3;
+        transform: translate(-50%, -50%) scale(1);
+    }
+    50% {
+        opacity: 0.7;
+        transform: translate(-50%, -50%) scale(1.05);
+    }
 }
 
 

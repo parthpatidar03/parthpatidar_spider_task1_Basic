@@ -193,8 +193,9 @@ function handleCellClick(col) {
     playSound(dropSound);
     board[row][col] = currentPlayer;
     
-    if (checkWin(row, col)) 
-        {
+    if (checkWin(row, col)) {
+        // Add winning animation to the winning discs
+        highlightWinningDiscs(row, col);
         endGame(`Player ${currentPlayer === "Red" ? "1" : "2"} wins! 🎉`, currentPlayer);
         scores[currentPlayer]++;
         return;
@@ -456,6 +457,51 @@ extraTimeBtn.addEventListener("click", () => usePowerUp("extra-time"));
 blockColumnBtn.addEventListener("click", () => usePowerUp("block-column"));
 removeBlockBtn.addEventListener("click", () => usePowerUp("remove-block"));
 soundToggle.addEventListener("click", toggleSound);
+
+function highlightWinningDiscs(row, col) {
+    const directions = [
+        [0, 1], [1, 0], [1, 1], [1, -1] // horizontal, vertical, diagonal
+    ];
+    
+    for (const [dr, dc] of directions) {
+        const winningPositions = [];
+        winningPositions.push([row, col]); // Add the current position
+        
+        // Check in both directions
+        let count = 1;
+        
+        // Check positive direction
+        let r = row + dr;
+        let c = col + dc;
+        while (r >= 0 && r < ROWS && c >= 0 && c < COLS && board[r][c] === currentPlayer) {
+            winningPositions.push([r, c]);
+            count++;
+            r += dr;
+            c += dc;
+        }
+        
+        // Check negative direction
+        r = row - dr;
+        c = col - dc;
+        while (r >= 0 && r < ROWS && c >= 0 && c < COLS && board[r][c] === currentPlayer) {
+            winningPositions.push([r, c]);
+            count++;
+            r -= dr;
+            c -= dc;
+        }
+        
+        // If we have 4 or more in a row, highlight these discs
+        if (count >= 4) {
+            winningPositions.forEach(([winRow, winCol]) => {
+                const cell = document.querySelector(`[data-row="${winRow}"][data-col="${winCol}"]`);
+                if (cell) {
+                    cell.classList.add('winning');
+                }
+            });
+            return; // Found the winning line, no need to check other directions
+        }
+    }
+}
 
 themeToggle.addEventListener("click", toggleTheme);
 closeModalBtn.addEventListener("click", () => {
